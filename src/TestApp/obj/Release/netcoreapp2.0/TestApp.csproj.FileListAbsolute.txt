@@ -1,0 +1,10 @@
+D:\C#\TestApp\artifacts\TestApp.deps.json
+D:\C#\TestApp\artifacts\TestApp.runtimeconfig.json
+D:\C#\TestApp\artifacts\TestApp.runtimeconfig.dev.json
+D:\C#\TestApp\artifacts\TestApp.dll
+D:\C#\TestApp\artifacts\TestApp.pdb
+D:\C#\TestApp\src\TestApp\obj\Release\netcoreapp2.0\TestApp.csproj.CoreCompileInputs.cache
+D:\C#\TestApp\src\TestApp\obj\Release\netcoreapp2.0\TestApp.AssemblyInfoInputs.cache
+D:\C#\TestApp\src\TestApp\obj\Release\netcoreapp2.0\TestApp.AssemblyInfo.cs
+D:\C#\TestApp\src\TestApp\obj\Release\netcoreapp2.0\TestApp.dll
+D:\C#\TestApp\src\TestApp\obj\Release\netcoreapp2.0\TestApp.pdb
