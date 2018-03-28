@@ -5,6 +5,9 @@
 //////////////////////////////////////////////////////////////////////
 var target = Argument("target", "Default");
 var webAppName = Argument("AppName", "TestApp");
+var projectFile = Argument("ProjectFile", "./src/TestApp/TestApp.csproj");
+var testProjectFile = Argument("TestProjectFile", "./src/TestAppTests/TestAppTests.csproj");
+var configuration = Argument("Configuration", "Release");
 var env = Argument("Env", "Dev");
 var outDir = Argument("OutDir", "./artifacts");
 var deployDir = Argument("deployDir", "Release");
@@ -33,7 +36,7 @@ Task("Restore-NuGet-Packages")
     .IsDependentOn("Clean")
     .Does(() =>
 {
-    DotNetCoreRestore("./src/TestApp/TestApp.csproj");
+    DotNetCoreRestore(projectFile);
 });
 
 Task("Build")
@@ -41,11 +44,11 @@ Task("Build")
     .Does(() =>
 {
       // Use DotNetCoreBuild
-      DotNetCoreBuild("./src/TestApp/TestApp.csproj",
+      DotNetCoreBuild(projectFile,
 	  new DotNetCoreBuildSettings()
 		 {
 			 Framework = "netcoreapp2.0",
-			 Configuration = "Release",
+			 Configuration = configuration,
 			 OutputDirectory = outDir
 		 }
 	 );
@@ -56,7 +59,7 @@ Task("Run-Unit-Tests")
     .IsDependentOn("Build")
     .Does(() =>
 {
-    DotNetCoreTest("./src/TestAppTests/TestAppTests.csproj");
+    DotNetCoreTest(testProjectFile);
 });
 
 
@@ -73,7 +76,7 @@ Task("Publish")
     .IsDependentOn("Run-Unit-Tests")
     .Does(() =>
 {
-    Zip("./artifacts", $"{webAppName}.zip");
+    Zip(outDir, $"{webAppName}.zip");
 });
 
 
